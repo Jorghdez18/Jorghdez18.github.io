@@ -1,84 +1,96 @@
 ---
 layout: default
-title: "Tu Nombre — CV & Repos"
+title: "Jorge Hernández Pérez — CV & Portfolio"
 ---
 
 <div class="container">
-  <header class="topbar">
+  <header class="topbar" style="display:flex; justify-content:space-between; align-items:center; padding:20px 0;">
     <div>
-      <h1 class="title">Tu Nombre</h1>
-      <div class="subtitle">Estudiante de Desarrollo de Aplicaciones Multiplataforma (1º DAM)</div>
+      <h1 class="title" style="color:#0052CC;">Jorge Hernández Pérez</h1>
+      <div class="subtitle" style="color:#555;">Estudiante de Desarrollo de Aplicaciones Multiplataforma (1º DAM)</div>
     </div>
-    <nav style="display:flex;gap:10px">
-      <a class="btn" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://github.com/TUUSUARIO" target="_blank">GitHub</a>
-      <a class="btn" href="mailto:tuemail@ejemplo.com">Email</a>
+    <nav style="display:flex; gap:10px;">
+      <a class="btn" href="https://www.linkedin.com/in/jorge-hern%C3%A1ndez-p%C3%A9rez-22a1a83b3/" target="_blank" style="background-color:#0A66C2; color:white;">LinkedIn</a>
+      <a class="btn" href="https://github.com/Jorghdez18" target="_blank" style="background-color:#181717; color:white;">GitHub</a>
+      <a class="btn" href="mailto:hernandezperezjorge845@gmail.com" style="background-color:#EA4335; color:white;">Email</a>
     </nav>
   </header>
 
+  <!-- Sobre mí -->
   <section class="section">
-    <h2>Sobre mí</h2>
-    <div class="grid2">
+    <h2 style="color:#0052CC;">Sobre mí</h2>
+    <div class="grid2" style="gap:30px; align-items:center;">
       <div class="profile">
-        <img src="assets/img/perfil.jpg" alt="Foto de perfil">
-        <div class="bio">
-          <p class="muted" style="margin:0">
-            Escribe aquí 3–4 líneas: qué estás aprendiendo, qué te gusta, en qué quieres mejorar.
+        <img src="/img/CamScanner 22-12-25 12.52_1.jpg" alt="Foto de perfil" style="width:250px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+        <div class="bio" style="margin-top:15px;">
+          <p style="color:#555; line-height:1.5;">
+            Soy estudiante de <b>DAM</b> apasionado por la tecnología y el desarrollo de aplicaciones. Me gusta aprender nuevas tecnologías, trabajar en equipo y enfrentar desafíos que me hagan mejorar como programador.
           </p>
-          <div class="pillrow">
-            <span class="pill">Java</span>
-            <span class="pill">SQL</span>
-            <span class="pill">HTML/CSS</span>
-            <span class="pill">Git</span>
+          <div class="pillrow" style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="pill" style="background-color:#F0DB4F; color:#333;">Java</span>
+            <span class="pill" style="background-color:#61DBFB; color:#333;">HTML/CSS</span>
+            <span class="pill" style="background-color:#3E8E41; color:white;">SQL</span>
+            <span class="pill" style="background-color:#181717; color:white;">Git</span>
           </div>
         </div>
       </div>
 
       <div>
-        <h3 style="margin:0 0 10px">Experiencia / Proyectos de clase</h3>
-        <ul class="muted" style="margin:0;padding-left:18px">
+        <h3 style="color:#FF8C00; margin-bottom:8px;">Experiencia / Proyectos de clase</h3>
+        <ul style="color:#555; padding-left:18px; line-height:1.6;">
           <li>Proyecto DAM: “App de Notas” (CRUD + BBDD)</li>
-          <li>Proyecto Java: “Gestor de tareas” (POO + tests)</li>
+          <li>Proyecto Java: “Gestor de Tareas” (POO + tests)</li>
         </ul>
 
-        <h3 style="margin:16px 0 10px">Objetivo</h3>
-        <p class="muted" style="margin:0">
-          Ejemplo: “Busco prácticas y mejorar en backend con Java/Spring y bases de datos.”
+        <h3 style="color:#FF8C00; margin-top:16px; margin-bottom:8px;">Objetivo</h3>
+        <p style="color:#555; line-height:1.5;">
+          Busco mis primeras <b>prácticas profesionales</b> donde pueda aplicar lo aprendido, seguir creciendo en desarrollo web y backend, y aprender buenas prácticas en proyectos reales.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- Metodologías ágiles -->
   <section class="section">
-    <h2>Proyectos destacados (topic: <code>showcase</code>)</h2>
-    <div id="featured" class="cards"></div>
-    <p class="muted" style="margin:10px 0 0">
-      Para que un repo salga aquí, añade el topic <b>showcase</b> en GitHub.
+    <h2 style="color:#0052CC;">Metodologías Ágiles</h2>
+    <p style="color:#555; line-height:1.5;">
+      Conozco los principios de <b>Agile</b> y su aplicación en proyectos de software. Trabajo con ciclos cortos de desarrollo, comunicación constante y mejora continua para entregar software funcional y adaptado a los cambios.
     </p>
+    <div style="display:flex; gap:10px; margin-top:10px;">
+      <span class="pill" style="background-color:#6DB33F; color:white;">Scrum</span>
+      <span class="pill" style="background-color:#FF8C00; color:white;">Kanban</span>
+      <span class="pill" style="background-color:#0052CC; color:white;">Agile</span>
+    </div>
   </section>
 
+  <!-- Proyectos destacados -->
   <section class="section">
-    <h2>Mis repositorios</h2>
-    <div class="toolbar">
-      <input id="q" class="input" placeholder="Buscar repositorios..." />
-      <select id="sort" class="select">
+    <h2 style="color:#0052CC;">Proyectos destacados (topic: <code>showcase</code>)</h2>
+    <div id="featured" class="cards" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:15px;"></div>
+    <p style="color:#777; margin-top:10px;">Para que un repo aparezca aquí, añade el topic <b>showcase</b> en GitHub.</p>
+  </section>
+
+  <!-- Repositorios -->
+  <section class="section">
+    <h2 style="color:#0052CC;">Mis repositorios</h2>
+    <div class="toolbar" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+      <input id="q" class="input" placeholder="Buscar repositorios..." style="flex:1; padding:6px 10px; border-radius:6px; border:1px solid #ccc;">
+      <select id="sort" class="select" style="padding:6px 10px; border-radius:6px; border:1px solid #ccc;">
         <option value="updated">Ordenar: actividad reciente</option>
         <option value="stars">Ordenar: estrellas</option>
         <option value="name">Ordenar: nombre</option>
       </select>
-      <button class="btn active" data-topic="all">Todos</button>
-      <button class="btn" data-topic="showcase">showcase</button>
-      <button class="btn" data-topic="web">web</button>
-      <button class="btn" data-topic="backend">backend</button>
+      <button class="btn active" data-topic="all" style="background-color:#0052CC; color:white;">Todos</button>
+      <button class="btn" data-topic="showcase" style="background-color:#6DB33F; color:white;">showcase</button>
+      <button class="btn" data-topic="web" style="background-color:#FF8C00; color:white;">web</button>
+      <button class="btn" data-topic="backend" style="background-color:#3E8E41; color:white;">backend</button>
     </div>
-
-    <div style="height:12px"></div>
-    <div id="repos" class="cards"></div>
+    <div id="repos" class="cards" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:15px;"></div>
   </section>
 </div>
 
 <script>
-  const GITHUB_USERNAME = "TUUSUARIO"; // <- CAMBIA ESTO
+  const GITHUB_USERNAME = "Jorghdez18";
   const FEATURED_TOPIC = "showcase";
   let allRepos = [];
   let activeTopic = "all";
@@ -87,6 +99,7 @@ title: "Tu Nombre — CV & Repos"
     const d = new Date(iso);
     return d.toLocaleDateString("es-ES", {year:"numeric", month:"short", day:"2-digit"});
   }
+
   function cardBorderByIndex(i){
     return ["border-blue","border-violet","border-emerald"][i % 3];
   }
@@ -110,24 +123,19 @@ title: "Tu Nombre — CV & Repos"
   function renderFeatured(repos){
     const featured = repos.filter(r => r.topics.includes(FEATURED_TOPIC)).slice(0, 6);
     const el = document.getElementById("featured");
-    el.innerHTML = featured.length ? "" : `<div class="muted">Aún no tienes repos con topic <b>${FEATURED_TOPIC}</b>.</div>`;
+    el.innerHTML = featured.length ? "" : `<div style="color:#777;">Aún no tienes repos con topic <b>${FEATURED_TOPIC}</b>.</div>`;
 
     featured.forEach((r, i) => {
       const topics = r.topics.slice(0, 4).map(t => `<span class="pill">${t}</span>`).join("");
       el.insertAdjacentHTML("beforeend", `
-        <article class="card ${cardBorderByIndex(i)}">
+        <article class="card" style="border:2px solid #0052CC; padding:10px; border-radius:10px; background-color:white;">
           <h3>${r.name}</h3>
-          <div class="muted">${r.description || "Sin descripción (añádela en GitHub 😉)"}</div>
-          <div class="pillrow">
-            <span class="pill featured">Featured</span>
-            ${topics}
+          <div style="color:#555;">${r.description || "Sin descripción (añádela en GitHub 😉)"}</div>
+          <div class="pillrow" style="margin-top:6px;">${topics} <span class="pill featured" style="background-color:#FF8C00;color:white;">Featured</span></div>
+          <div style="margin-top:6px; font-size:0.9em; color:#777;">
+            ⭐ ${r.stargazers_count} • 🧩 ${r.language} • 🕒 ${formatDate(r.updated_at)}
           </div>
-          <div class="repoMeta">
-            <span>⭐ ${r.stargazers_count}</span>
-            <span>🧩 ${r.language}</span>
-            <span>🕒 ${formatDate(r.updated_at)}</span>
-          </div>
-          <a class="btn" href="${r.html_url}" target="_blank" rel="noreferrer">Ver repo</a>
+          <a class="btn" href="${r.html_url}" target="_blank" style="margin-top:6px; display:inline-block; background-color:#0A66C2;color:white;padding:4px 8px;border-radius:6px;text-decoration:none;">Ver repo</a>
         </article>
       `);
     });
@@ -152,7 +160,7 @@ title: "Tu Nombre — CV & Repos"
   function renderRepos(repos){
     const el = document.getElementById("repos");
     const list = applyFilters(repos);
-    el.innerHTML = list.length ? "" : `<div class="muted">No hay resultados con esos filtros.</div>`;
+    el.innerHTML = list.length ? "" : `<div style="color:#777;">No hay resultados con esos filtros.</div>`;
 
     list.forEach((r, i) => {
       const topics = (r.topics && r.topics.length)
@@ -160,16 +168,14 @@ title: "Tu Nombre — CV & Repos"
         : `<span class="pill">sin topics</span>`;
 
       el.insertAdjacentHTML("beforeend", `
-        <article class="card ${cardBorderByIndex(i)}">
+        <article class="card" style="border:2px solid #6DB33F; padding:10px; border-radius:10px; background-color:white;">
           <h3>${r.name}</h3>
-          <div class="muted">${r.description || "Sin descripción"}</div>
-          <div class="pillrow">${topics}</div>
-          <div class="repoMeta">
-            <span>⭐ ${r.stargazers_count}</span>
-            <span>🧩 ${r.language}</span>
-            <span>🕒 ${formatDate(r.updated_at)}</span>
+          <div style="color:#555;">${r.description || "Sin descripción"}</div>
+          <div class="pillrow" style="margin-top:6px;">${topics}</div>
+          <div style="margin-top:6px; font-size:0.9em; color:#777;">
+            ⭐ ${r.stargazers_count} • 🧩 ${r.language} • 🕒 ${formatDate(r.updated_at)}
           </div>
-          <a class="btn" href="${r.html_url}" target="_blank" rel="noreferrer">Abrir</a>
+          <a class="btn" href="${r.html_url}" target="_blank" style="margin-top:6px; display:inline-block; background-color:#0A66C2;color:white;padding:4px 8px;border-radius:6px;text-decoration:none;">Abrir</a>
         </article>
       `);
     });
@@ -196,8 +202,8 @@ title: "Tu Nombre — CV & Repos"
   }
 
   main().catch(err => {
-    document.getElementById("featured").innerHTML = `<div class="muted">${err.message}</div>`;
-    document.getElementById("repos").innerHTML = `<div class="muted">${err.message}</div>`;
+    document.getElementById("featured").innerHTML = `<div style="color:#777;">${err.message}</div>`;
+    document.getElementById("repos").innerHTML = `<div style="color:#777;">${err.message}</div>`;
     console.error(err);
   });
 </script>
