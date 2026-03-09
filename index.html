@@ -5,11 +5,12 @@ title: "Jorge Hernández Pérez — CV & Repos"
 
 <style>
 :root{
-  --bg:#0a0a0a;
-  --text:#f8f9fa;
-  --muted:#aaaaaa;
-  --card:#1e1e1e;
-  --brand:#009688;
+  --bg:#1c1c1c;
+  --text:#f5f5f5;
+  --muted:#b0b0b0;
+  --card:#2a2a2a;
+  --brand:#1abc9c;
+  --brand-hover:#16a085;
   --shadow:0 16px 50px rgba(0,0,0,0.4);
   --radius:16px;
 }
@@ -21,7 +22,7 @@ header{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; al
 header h1{font-size:40px;margin:0;}
 header .subtitle{color:var(--muted); font-size:18px;}
 nav a{margin-left:10px;background:var(--brand); padding:8px 14px; border-radius:10px; font-weight:bold; transition:0.2s;}
-nav a:hover{background:#00796b;}
+nav a:hover{background:var(--brand-hover);}
 .section{margin-top:20px; padding:20px; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);}
 .grid2{display:grid; grid-template-columns:1.1fr .9fr; gap:20px;}
 @media(max-width:900px){.grid2{grid-template-columns:1fr;} header h1{font-size:32px;}}
@@ -29,17 +30,17 @@ nav a:hover{background:#00796b;}
 .profile img{width:180px; height:180px; object-fit:cover; border-radius:50%; box-shadow:0 6px 20px rgba(0,0,0,0.4);}
 .bio p{margin:0 0 10px;}
 .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;}
-.pill{padding:6px 12px; border-radius:50px; background:#333; font-size:12px; font-weight:bold;}
-.pill.featured{background:var(--brand); color:#fff;}
+.pill{padding:6px 12px; border-radius:50px; background:var(--brand); font-size:12px; font-weight:bold; color:var(--card);}
+.pill.featured{background:var(--brand-hover); color:#fff;}
 .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px;}
 .card{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:0 8px 25px rgba(0,0,0,0.2); display:flex; flex-direction:column; transition:transform 0.3s, box-shadow 0.3s;}
 .card:hover{transform:translateY(-5px); box-shadow:0 12px 35px rgba(0,0,0,0.35);}
 .repoMeta{display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-top:10px; flex-wrap:wrap;}
 .toolbar{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
-.input, .select{padding:8px 12px; border-radius:10px; border:none; background:#222; color:var(--text);}
-.btn{padding:8px 12px; border-radius:10px; border:none; background:#333; color:var(--text); cursor:pointer; transition:0.2s;}
-.btn:hover{background:var(--brand);}
-.btn.active{background:var(--brand); color:#fff;}
+.input, .select{padding:8px 12px; border-radius:10px; border:none; background:#333; color:var(--text);}
+.btn{padding:8px 12px; border-radius:10px; border:none; background:var(--brand); color:#1c1c1c; cursor:pointer; transition:0.2s;}
+.btn:hover{background:var(--brand-hover); color:#fff;}
+.btn.active{background:var(--brand-hover); color:#fff;}
 </style>
 
 <div class="container">
@@ -59,7 +60,7 @@ nav a:hover{background:#00796b;}
   <h2>Sobre mí</h2>
   <div class="grid2">
     <div class="profile">
-     <img src="img/CamScanner 22-12-25 12.52_1.jpg" alt="Foto de perfil">
+      <img src="img/CamScanner 22-12-25 12.52_1.jpg" alt="Foto de perfil">
       <div class="bio">
         <p>Soy estudiante de DAM con pasión por la programación y el desarrollo de aplicaciones multiplataforma. Me gusta aprender nuevas tecnologías, resolver problemas y crear proyectos útiles y bien estructurados.</p>
         <p><strong>Nivel de inglés:</strong> Intermedio</p>
@@ -121,7 +122,7 @@ function renderRepos(repos){
   const list=applyFilters(repos);
   el.innerHTML=list.length? "": "<div style='color:#888;'>No hay resultados con esos filtros.</div>";
   list.forEach((r,i)=>{
-    const topics=r.topics.length? r.topics.map(t=>`<span class='pill' style='background:#555;'>${t}</span>`).join("") : "<span class='pill' style='background:#555;'>sin topics</span>";
+    const topics=r.topics.length? r.topics.map(t=>`<span class='pill' style='background:#16a085;'>${t}</span>`).join("") : "<span class='pill' style='background:#16a085;'>sin topics</span>";
     el.insertAdjacentHTML("beforeend",`
       <div class="card">
         <h3>${r.name}</h3>
