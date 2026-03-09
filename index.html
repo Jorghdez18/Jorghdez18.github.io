@@ -80,7 +80,7 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
 </div>
 
 <style>
-  @keyframes fadeIn {
+  @ keyframes fadeIn {
     to { opacity: 1; }
   }
   .btn:hover {
@@ -94,17 +94,17 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
 </style>
 
 <script>
-  const GITHUB_USERNAME = "Jorghdez18";
-  let allRepos = [];
-  let activeTopic = "all";
+  constGITHUB_USERNAME = "Jorghdez18";
+  letallRepos = [];
+  letactiveTopic = "all";
 
-  function formatDate(iso){
-    const d = new Date(iso);
-    return d.toLocaleDateString("es-ES", {year:"numeric", month:"short", day:"2-digit"});
+  functionformatDate(iso){
+    constd = newDate(iso);
+    returnd.toLocaleDateString("es-ES", {year:"numeric", month:"short", day:"2-digit"});
   }
 
-  async function fetchRepos(){
-    const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`;
+  asyncfunction fetchRepos(){
+    consturl = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`;
     const res = await fetch(url, { headers: { "Accept":"application/vnd.github+json" }});
     if(!res.ok) throw new Error("No se pudo leer la API de GitHub. Revisa tu usuario.");
     const repos = await res.json();
