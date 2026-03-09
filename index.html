@@ -1,127 +1,282 @@
 ---
 layout: default
-title: "Jorge Hernández — CV & Repos"
+title: "Javier Reyes Perdomo — CV & Repos"
 ---
 
+<style>
+:root{
+  --bg:#040607; /* Nuestro rojo vibrante de base */
+  --text:#f8f9fa; /* Texto blanco suave */
+  --muted:#f8f9fa; /* Tono rosado pálido para el texto atenuado */
+  --card:#212529; /* Gris muy oscuro (casi negro) para las tarjetas y elementos principales, que contrasta súper bien */
+  --line:#; /* Un gris oscuro para las líneas, para que no compitan con el rojo y blanco */
+  --brand:#009688; /* ¡Un amarillo oro brillante como color de marca principal para destacar! */
+  --brand2:#f8f9fa; /* He cambiado este a blanco puro para las letras que mencionaste, para que destaquen sin ser demasiado */
+  --shadow: 0 16px 50px rgba(0, 0, 0, 0.4); /* Sombra fuerte para dar profundidad */
+  --radius: 18px;
+  /* Nuevas variables para el patrón */
+  --pattern-color: rgba(0, 0, 0, 0.1); /* Color del patrón, un negro semitransparente */
+  --pattern-size: 20px; /* Tamaño de la "celda" del patrón */
+}
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background-color: var(--bg); /* Fondo base rojo */
+  color: var(--text);
+}
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+}
+.topbar{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--card);
+}
+.title{
+  font-size: 44px;
+  line-height: 1.05;
+}
+.subtitle{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+.section{
+  margin-top: 22px;
+  padding: 22px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.grid2{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 18px;
+}
+@media (max-width: 900px){
+  .grid2{
+    grid-template-columns: 1fr;
+  }
+  .title{
+    font-size: 36px;
+  }
+}
+.profile{
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--bg); /* ¡Ahora el borde del perfil es el mismo rojo que el fondo! */
+}
+.profile img{
+  width: 200px;
+  object-fit: cover;
+  display: block;
+}
+.profile .bio{
+  padding: 16px;
+}
+.pillrow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.pill{
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+}
+.pill.featured{
+  border-color: var(--brand2);
+  background: var(--brand2);
+  color: var(--card);
+}
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 950px){
+  .cards{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px){
+  .cards{
+    grid-template-columns: 1fr;
+  }
+}
+.card{
+  background: var(--card);
+  border-radius: 16px;
+  padding: 14px;
+  border: 2px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card.border-blue{
+  border-color: var(--brand2);
+}
+.card.border-violet{
+  border-color: #a76dcf;
+}
+.card.border-emerald{
+  border-color: #5cb85c;
+}
+.muted{
+  color: var(--muted);
+}
+.toolbar{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+.input{
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+}
+.select{
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+}
+.btn{
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn.active{
+  border-color: var(--brand);
+  background: var(--brand);
+  color: var(--card);
+}
+.repoMeta{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+</style>
 <div class="container">
   <header class="topbar">
     <div>
-      <h1 class="title">Jorge Hernández Pérez</h1>
+      <h1 class="title">Javier Reyes Perdomo</h1>
       <div class="subtitle">Estudiante de Desarrollo de Aplicaciones Multiplataforma (1º DAM)</div>
     </div>
     <nav style="display:flex;gap:10px">
-      <a class="btn" href="https://www.linkedin.com/in/jorge-hern%C3%A1ndez-p%C3%A9rez-22a1a83b3/" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://github.com/JorgHdez18" target="_blank">GitHub</a>
-      <a class="btn" href="mailto:hernandezperezjorge845@gmail.com">Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/javier-reyes-perdomo-479a213b3/" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/jreyper" target="_blank">GitHub</a>
+      <a class="btn" href="mailto:javierreyesperdomo@gmail.com">Email</a>
     </nav>
   </header>
 
-  <section class="section" style="background-color:#FFF4E0; border-radius:12px; padding:20px; margin-top:20px">
+  <section class="section">
     <h2>Sobre mí</h2>
-    <div class="grid2" style="align-items:center">
-      <div class="profile" style="display:flex; gap:20px; align-items:center">
-        <img src="assets/img/CamScanner%2022-12-25%2012.52_1.jpg" alt="Foto de perfil" style="border-radius:50%; width:140px; height:140px; object-fit:cover; box-shadow:0 4px 10px rgba(0,0,0,0.2)">
+    <div class="grid2">
+      <div class="profile">
+        <img src="assets/img/fotocurriculum2.png" alt="Foto de perfil">
         <div class="bio">
-          <p class="muted" style="margin:0 0 8px; font-size:1.05em">
-            Soy estudiante de DAM con pasión por la programación y el desarrollo de aplicaciones multiplataforma. Me gusta aprender nuevas tecnologías, resolver problemas y crear proyectos útiles y bien estructurados.
+          <p class="muted" style="margin:0">
+            Estoy aprendiendo mucho desde que estoy en este ciclo y hay cosas que no sabia ni como funcionaban y ahora si. Simpre habran cosas que gusten más o menos, pero a mi siempre me gustará aprender cosas nuevas, y me ilusiona mucho seguir mejorando en programación, y para poder seguir haciendo lo que me gusta.
           </p>
-          <p class="muted" style="margin:0 0 12px; font-weight:bold">
-            Nivel de inglés: Intermedio
-          </p>
-          <div class="pillrow" style="gap:8px; display:flex; flex-wrap:wrap">
-            <span class="pill" style="background:#007ACC; color:white">Java</span>
-            <span class="pill" style="background:#6DB33F; color:white">SQL</span>
-            <span class="pill" style="background:#E34C26; color:white">HTML/CSS</span>
-            <span class="pill" style="background:#F05032; color:white">Git</span>
+          <div class="pillrow">
+            <span class="pill">Java</span>
+            <span class="pill">SQL</span>
+            <span class="pill">HTML/CSS</span>
+            <span class="pill">Git</span>
+            <span class="pill">XML/XSD</span>
+            <span class="pill">Bash/BashScripting</span>
           </div>
         </div>
       </div>
 
       <div>
-        <h3 style="margin:10px 0 6px">Objetivo profesional</h3>
-        <p class="muted" style="margin:0; font-size:1.05em">
-          Busco prácticas para mejorar mis habilidades en desarrollo backend con Java y bases de datos, así como adquirir experiencia en entornos reales de desarrollo de software. Quiero crecer profesionalmente y aportar soluciones eficaces en los proyectos en los que participe.
+        <h3 style="margin:0 0 10px">Experiencia / Proyectos de clase</h3>
+        <ul class="muted" style="margin:0;padding-left:18px">
+          <li>Actividades variadas en Entornos de Desarrollo: Diagramas, git, etc...</li>
+          <li>Actividades en Sistemas Informáticos: Bash, BashScripting</li>
+        </ul>
+
+        <h3 style="margin:16px 0 10px">Objetivo</h3>
+        <p class="muted" style="margin:0">
+          Busco prácticas y mejorar en todos los ámbitos ya sea backend con Java y bases de datos o frontend con java JavaScript, HTML y CSS.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="section" style="margin-top:30px">
+  <section class="section">
+    <h2>Proyectos destacados</h2>
+    <div id="featured" class="cards"></div>
+    <p class="muted" style="margin:10px 0 0">
+    </p>
+  </section>
+
+  <section class="section">
     <h2>Mis repositorios</h2>
-    <div class="toolbar" style="margin-bottom:12px; display:flex; gap:10px; flex-wrap:wrap">
-      <input id="q" class="input" placeholder="Buscar repositorios..." style="flex:1; padding:6px 10px; border-radius:6px; border:1px solid #ccc" />
-      <select id="sort" class="select" style="padding:6px 10px; border-radius:6px; border:1px solid #ccc">
+    <div class="toolbar">
+      <input id="q" class="input" placeholder="Buscar repositorios..." />
+      <select id="sort" class="select">
         <option value="updated">Ordenar: actividad reciente</option>
         <option value="stars">Ordenar: estrellas</option>
         <option value="name">Ordenar: nombre</option>
       </select>
+      <button class="btn active" data-topic="all">Todos</button>
+      <button class="btn" data-topic="showcase">showcase</button>
+      <button class="btn" data-topic="web">web</button>
+      <button class="btn" data-topic="backend">backend</button>
     </div>
 
-    <div id="repos" class="cards" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px"></div>
+    <div style="height:12px"></div>
+    <div id="repos" class="cards"></div>
   </section>
 </div>
 
-<style>
-  .card {
-    background:white;
-    border-radius:12px;
-    padding:16px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-  }
-  .pillrow {
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-top:8px;
-  }
-  .pill {
-    background:#ccc;
-    border-radius:12px;
-    padding:2px 8px;
-    font-size:0.85em;
-    font-weight:bold;
-    color:white;
-  }
-  .repoMeta {
-    display:flex;
-    justify-content:space-between;
-    font-size:0.85em;
-    margin-top:10px;
-    color:#555;
-  }
-  .btn {
-    margin-top:10px;
-    background:#007ACC;
-    color:white;
-    padding:6px 12px;
-    border:none;
-    border-radius:8px;
-    text-decoration:none;
-    text-align:center;
-    font-weight:bold;
-    cursor:pointer;
-    transition: background 0.2s;
-  }
-  .btn:hover {
-    background:#005A9E;
-  }
-</style>
-
 <script>
-  const GITHUB_USERNAME = "JorgHdez18"; 
+  const GITHUB_USERNAME = "jreyper"; // <- CAMBIA ESTO
+  const FEATURED_TOPIC = "showcase";
   let allRepos = [];
+  let activeTopic = "all";
 
   function formatDate(iso){
     const d = new Date(iso);
     return d.toLocaleDateString("es-ES", {year:"numeric", month:"short", day:"2-digit"});
+  }
+  function cardBorderByIndex(i){
+    return ["border-blue","border-violet","border-emerald"][i % 3];
   }
 
   async function fetchRepos(){
@@ -140,11 +295,41 @@ title: "Jorge Hernández — CV & Repos"
     }));
   }
 
+  function renderFeatured(repos){
+    const featured = repos.filter(r => r.topics.includes(FEATURED_TOPIC)).slice(0, 6);
+    const el = document.getElementById("featured");
+    el.innerHTML = featured.length ? "" : `<div class="muted">Aún no tienes repos con topic <b>${FEATURED_TOPIC}</b>.</div>`;
+
+    featured.forEach((r, i) => {
+      const topics = r.topics.slice(0, 4).map(t => `<span class="pill">${t}</span>`).join("");
+      el.insertAdjacentHTML("beforeend", `
+        <article class="card ${cardBorderByIndex(i)}">
+          <h3>${r.name}</h3>
+          <div class="muted">${r.description || "Sin descripción (añádela en GitHub 😉)"}</div>
+          <div class="pillrow">
+            <span class="pill featured">Featured</span>
+            ${topics}
+          </div>
+          <div class="repoMeta">
+            <span>⭐ ${r.stargazers_count}</span>
+            <span>🧩 ${r.language}</span>
+            <span>🕒 ${formatDate(r.updated_at)}</span>
+          </div>
+          <a class="btn" href="${r.html_url}" target="_blank" rel="noreferrer">Ver repo</a>
+        </article>
+      `);
+    });
+  }
+
   function applyFilters(repos){
     const q = (document.getElementById("q").value || "").toLowerCase();
     const sort = document.getElementById("sort").value;
 
-    let out = repos.filter(r => r.name.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q));
+    let out = repos.filter(r => {
+      const matchesText = r.name.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q);
+      const matchesTopic = activeTopic === "all" ? true : r.topics.includes(activeTopic);
+      return matchesText && matchesTopic;
+    });
 
     if (sort === "updated") out.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at));
     if (sort === "stars") out.sort((a,b) => (b.stargazers_count||0) - (a.stargazers_count||0));
@@ -160,12 +345,12 @@ title: "Jorge Hernández — CV & Repos"
     list.forEach((r, i) => {
       const topics = (r.topics && r.topics.length)
         ? r.topics.slice(0, 6).map(t => `<span class="pill">${t}</span>`).join("")
-        : `<span class="pill" style="background:#aaa">sin topics</span>`;
+        : `<span class="pill">sin topics</span>`;
 
       el.insertAdjacentHTML("beforeend", `
-        <article class="card">
+        <article class="card ${cardBorderByIndex(i)}">
           <h3>${r.name}</h3>
-          <div class="muted" style="margin-top:6px; flex-grow:1">${r.description || "Sin descripción"}</div>
+          <div class="muted">${r.description || "Sin descripción"}</div>
           <div class="pillrow">${topics}</div>
           <div class="repoMeta">
             <span>⭐ ${r.stargazers_count}</span>
@@ -181,15 +366,25 @@ title: "Jorge Hernández — CV & Repos"
   function bindUI(){
     document.getElementById("q").addEventListener("input", () => renderRepos(allRepos));
     document.getElementById("sort").addEventListener("change", () => renderRepos(allRepos));
+    document.querySelectorAll(".btn[data-topic]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".btn[data-topic]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeTopic = btn.dataset.topic;
+        renderRepos(allRepos);
+      });
+    });
   }
 
   async function main(){
     bindUI();
     allRepos = await fetchRepos();
+    renderFeatured(allRepos);
     renderRepos(allRepos);
   }
 
   main().catch(err => {
+    document.getElementById("featured").innerHTML = `<div class="muted">${err.message}</div>`;
     document.getElementById("repos").innerHTML = `<div class="muted">${err.message}</div>`;
     console.error(err);
   });
