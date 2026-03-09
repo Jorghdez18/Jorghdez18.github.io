@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Tu Nombre — CV & Repos"
+title: "Jorge Hernández — CV & Repos"
 ---
 
 <div class="container">
@@ -11,7 +11,7 @@ title: "Tu Nombre — CV & Repos"
     </div>
     <nav style="display:flex;gap:10px">
       <a class="btn" href="https://www.linkedin.com/in/jorge-hern%C3%A1ndez-p%C3%A9rez-22a1a83b3/" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://github.com/Jorghdez18" target="_blank">GitHub</a>
+      <a class="btn" href="https://github.com/JorgHdez18" target="_blank">GitHub</a>
       <a class="btn" href="mailto:hernandezperezjorge845@gmail.com">Email</a>
     </nav>
   </header>
@@ -20,12 +20,15 @@ title: "Tu Nombre — CV & Repos"
     <h2>Sobre mí</h2>
     <div class="grid2">
       <div class="profile">
-        <img src="assets/img/perfil.jpg" alt="Foto de perfil">
+        <img src="assets/img/CamScanner 22-12-25 12.52_1.jpg" alt="Foto de perfil">
         <div class="bio">
           <p class="muted" style="margin:0">
-            Escribe aquí 3–4 líneas: qué estás aprendiendo, qué te gusta, en qué quieres mejorar.
+            Soy estudiante de DAM con pasión por la programación y el desarrollo de aplicaciones multiplataforma. Me gusta aprender nuevas tecnologías, resolver problemas y crear proyectos útiles y bien estructurados.
           </p>
-          <div class="pillrow">
+          <p class="muted" style="margin:8px 0 0">
+            Nivel de inglés: Intermedio.
+          </p>
+          <div class="pillrow" style="margin-top:10px">
             <span class="pill">Java</span>
             <span class="pill">SQL</span>
             <span class="pill">HTML/CSS</span>
@@ -35,24 +38,12 @@ title: "Tu Nombre — CV & Repos"
       </div>
 
       <div>
-        <h3 style="margin:0 0 10px">Experiencia / Proyectos de clase</h3>
-        <ul class="muted" style="margin:0;padding-left:18px">
-        </ul>
-
-        <h3 style="margin:16px 0 10px">Objetivo</h3>
+        <h3 style="margin:0 0 10px">Objetivo profesional</h3>
         <p class="muted" style="margin:0">
-          Ejemplo: “Busco prácticas y mejorar en backend con Java/Spring y bases de datos.”
+          Busco prácticas para mejorar mis habilidades en desarrollo backend con Java y bases de datos, así como adquirir experiencia en entornos reales de desarrollo de software. Mi objetivo es crecer profesionalmente y aportar soluciones eficaces en los proyectos en los que participe.
         </p>
       </div>
     </div>
-  </section>
-
-  <section class="section">
-    <h2>Proyectos destacados (topic: <code>showcase</code>)</h2>
-    <div id="featured" class="cards"></div>
-    <p class="muted" style="margin:10px 0 0">
-      Para que un repo salga aquí, añade el topic <b>showcase</b> en GitHub.
-    </p>
   </section>
 
   <section class="section">
@@ -64,10 +55,6 @@ title: "Tu Nombre — CV & Repos"
         <option value="stars">Ordenar: estrellas</option>
         <option value="name">Ordenar: nombre</option>
       </select>
-      <button class="btn active" data-topic="all">Todos</button>
-      <button class="btn" data-topic="showcase">showcase</button>
-      <button class="btn" data-topic="web">web</button>
-      <button class="btn" data-topic="backend">backend</button>
     </div>
 
     <div style="height:12px"></div>
@@ -76,10 +63,8 @@ title: "Tu Nombre — CV & Repos"
 </div>
 
 <script>
-  const GITHUB_USERNAME = "Jorghdez18"; // <- CAMBIA ESTO
-  const FEATURED_TOPIC = "showcase";
+  const GITHUB_USERNAME = "JorgHdez18"; // usuario correcto
   let allRepos = [];
-  let activeTopic = "all";
 
   function formatDate(iso){
     const d = new Date(iso);
@@ -90,7 +75,7 @@ title: "Tu Nombre — CV & Repos"
   }
 
   async function fetchRepos(){
-    const url = `https://api.github.com/users/${GITHUB_Jorgehdez18}/repos?per_page=100&sort=updated`;
+    const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`;
     const res = await fetch(url, { headers: { "Accept":"application/vnd.github+json" }});
     if(!res.ok) throw new Error("No se pudo leer la API de GitHub. Revisa tu usuario.");
     const repos = await res.json();
@@ -105,41 +90,11 @@ title: "Tu Nombre — CV & Repos"
     }));
   }
 
-  function renderFeatured(repos){
-    const featured = repos.filter(r => r.topics.includes(FEATURED_TOPIC)).slice(0, 6);
-    const el = document.getElementById("featured");
-    el.innerHTML = featured.length ? "" : `<div class="muted">Aún no tienes repos con topic <b>${FEATURED_TOPIC}</b>.</div>`;
-
-    featured.forEach((r, i) => {
-      const topics = r.topics.slice(0, 4).map(t => `<span class="pill">${t}</span>`).join("");
-      el.insertAdjacentHTML("beforeend", `
-        <article class="card ${cardBorderByIndex(i)}">
-          <h3>${r.name}</h3>
-          <div class="muted">${r.description || "Sin descripción (añádela en GitHub 😉)"}</div>
-          <div class="pillrow">
-            <span class="pill featured">Featured</span>
-            ${topics}
-          </div>
-          <div class="repoMeta">
-            <span>⭐ ${r.stargazers_count}</span>
-            <span>🧩 ${r.language}</span>
-            <span>🕒 ${formatDate(r.updated_at)}</span>
-          </div>
-          <a class="btn" href="${r.html_url}" target="_blank" rel="noreferrer">Ver repo</a>
-        </article>
-      `);
-    });
-  }
-
   function applyFilters(repos){
     const q = (document.getElementById("q").value || "").toLowerCase();
     const sort = document.getElementById("sort").value;
 
-    let out = repos.filter(r => {
-      const matchesText = r.name.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q);
-      const matchesTopic = activeTopic === "all" ? true : r.topics.includes(activeTopic);
-      return matchesText && matchesTopic;
-    });
+    let out = repos.filter(r => r.name.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q));
 
     if (sort === "updated") out.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at));
     if (sort === "stars") out.sort((a,b) => (b.stargazers_count||0) - (a.stargazers_count||0));
@@ -176,25 +131,15 @@ title: "Tu Nombre — CV & Repos"
   function bindUI(){
     document.getElementById("q").addEventListener("input", () => renderRepos(allRepos));
     document.getElementById("sort").addEventListener("change", () => renderRepos(allRepos));
-    document.querySelectorAll(".btn[data-topic]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".btn[data-topic]").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        activeTopic = btn.dataset.topic;
-        renderRepos(allRepos);
-      });
-    });
   }
 
   async function main(){
     bindUI();
     allRepos = await fetchRepos();
-    renderFeatured(allRepos);
     renderRepos(allRepos);
   }
 
   main().catch(err => {
-    document.getElementById("featured").innerHTML = `<div class="muted">${err.message}</div>`;
     document.getElementById("repos").innerHTML = `<div class="muted">${err.message}</div>`;
     console.error(err);
   });
