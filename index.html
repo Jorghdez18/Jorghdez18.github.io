@@ -1,4 +1,3 @@
-
 <div class="container">
   <header class="topbar">
     <div>
@@ -12,62 +11,112 @@
     </nav>
   </header>
 
-  <section class="section" style="background-color: blanchedalmond;">
+  <section class="section" style="background-color:#FFF4E0; border-radius:12px; padding:20px; margin-top:20px">
     <h2>Sobre mí</h2>
-    <div class="grid2">
-      <div class="profile">
-        <img src="assets/img/CamScanner 22-12-25 12.52_1.jpg" alt="Foto de perfil">
+    <div class="grid2" style="align-items:center">
+      <div class="profile" style="display:flex; gap:20px; align-items:center">
+        <img src="assets/img/CamScanner%2022-12-25%2012.52_1.jpg" alt="Foto de perfil" style="border-radius:50%; width:140px; height:140px; object-fit:cover; box-shadow:0 4px 10px rgba(0,0,0,0.2)">
         <div class="bio">
-          <p class="muted" style="margin:0">
+          <p class="muted" style="margin:0 0 8px; font-size:1.05em">
             Soy estudiante de DAM con pasión por la programación y el desarrollo de aplicaciones multiplataforma. Me gusta aprender nuevas tecnologías, resolver problemas y crear proyectos útiles y bien estructurados.
           </p>
-          <p class="muted" style="margin:8px 0 0">
-            Nivel de inglés: Intermedio.
+          <p class="muted" style="margin:0 0 12px; font-weight:bold">
+            Nivel de inglés: Intermedio
           </p>
-          <div class="pillrow" style="margin-top:10px">
-            <span class="pill">Java</span>
-            <span class="pill">SQL</span>
-            <span class="pill">HTML/CSS</span>
-            <span class="pill">Git</span>
+          <div class="pillrow" style="gap:8px; display:flex; flex-wrap:wrap">
+            <span class="pill" style="background:#007ACC; color:white">Java</span>
+            <span class="pill" style="background:#6DB33F; color:white">SQL</span>
+            <span class="pill" style="background:#E34C26; color:white">HTML/CSS</span>
+            <span class="pill" style="background:#F05032; color:white">Git</span>
           </div>
         </div>
       </div>
 
       <div>
-        <h3 style="margin:0 0 10px">Objetivo profesional</h3>
-        <p class="muted" style="margin:0">
-          Busco prácticas para mejorar mis habilidades en desarrollo backend con Java y bases de datos, así como adquirir experiencia en entornos reales de desarrollo de software. Mi objetivo es crecer profesionalmente y aportar soluciones eficaces en los proyectos en los que participe.
+        <h3 style="margin:10px 0 6px">Objetivo profesional</h3>
+        <p class="muted" style="margin:0; font-size:1.05em">
+          Busco prácticas para mejorar mis habilidades en desarrollo backend con Java y bases de datos, así como adquirir experiencia en entornos reales de desarrollo de software. Quiero crecer profesionalmente y aportar soluciones eficaces en los proyectos en los que participe.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="margin-top:30px">
     <h2>Mis repositorios</h2>
-    <div class="toolbar">
-      <input id="q" class="input" placeholder="Buscar repositorios..." />
-      <select id="sort" class="select">
+    <div class="toolbar" style="margin-bottom:12px; display:flex; gap:10px; flex-wrap:wrap">
+      <input id="q" class="input" placeholder="Buscar repositorios..." style="flex:1; padding:6px 10px; border-radius:6px; border:1px solid #ccc" />
+      <select id="sort" class="select" style="padding:6px 10px; border-radius:6px; border:1px solid #ccc">
         <option value="updated">Ordenar: actividad reciente</option>
         <option value="stars">Ordenar: estrellas</option>
         <option value="name">Ordenar: nombre</option>
       </select>
     </div>
 
-    <div style="height:12px"></div>
-    <div id="repos" class="cards"></div>
+    <div id="repos" class="cards" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px"></div>
   </section>
 </div>
 
+<style>
+  .card {
+    background:white;
+    border-radius:12px;
+    padding:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  }
+  .pillrow {
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:8px;
+  }
+  .pill {
+    background:#ccc;
+    border-radius:12px;
+    padding:2px 8px;
+    font-size:0.85em;
+    font-weight:bold;
+    color:white;
+  }
+  .repoMeta {
+    display:flex;
+    justify-content:space-between;
+    font-size:0.85em;
+    margin-top:10px;
+    color:#555;
+  }
+  .btn {
+    margin-top:10px;
+    background:#007ACC;
+    color:white;
+    padding:6px 12px;
+    border:none;
+    border-radius:8px;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+    cursor:pointer;
+    transition: background 0.2s;
+  }
+  .btn:hover {
+    background:#005A9E;
+  }
+</style>
+
 <script>
-  const GITHUB_USERNAME = "JorgHdez18"; // usuario correcto
+  const GITHUB_USERNAME = "JorgHdez18"; 
   let allRepos = [];
 
   function formatDate(iso){
     const d = new Date(iso);
     return d.toLocaleDateString("es-ES", {year:"numeric", month:"short", day:"2-digit"});
-  }
-  function cardBorderByIndex(i){
-    return ["border-blue","border-violet","border-emerald"][i % 3];
   }
 
   async function fetchRepos(){
@@ -106,12 +155,12 @@
     list.forEach((r, i) => {
       const topics = (r.topics && r.topics.length)
         ? r.topics.slice(0, 6).map(t => `<span class="pill">${t}</span>`).join("")
-        : `<span class="pill">sin topics</span>`;
+        : `<span class="pill" style="background:#aaa">sin topics</span>`;
 
       el.insertAdjacentHTML("beforeend", `
-        <article class="card ${cardBorderByIndex(i)}">
+        <article class="card">
           <h3>${r.name}</h3>
-          <div class="muted">${r.description || "Sin descripción"}</div>
+          <div class="muted" style="margin-top:6px; flex-grow:1">${r.description || "Sin descripción"}</div>
           <div class="pillrow">${topics}</div>
           <div class="repoMeta">
             <span>⭐ ${r.stargazers_count}</span>
