@@ -11,9 +11,9 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
       <div class="subtitle" style="color:#555;">Estudiante de Desarrollo de Aplicaciones Multiplataforma (1º DAM)</div>
     </div>
     <nav style="display:flex; gap:10px;">
-      <a class="btn" href="https://www.linkedin.com/in/jorge-hern%C3%A1ndez-p%C3%A9rez-22a1a83b3/" target="_blank" style="background-color:#0A66C2; color:white; transition: all 0.3s;">LinkedIn</a>
-      <a class="btn" href="https://github.com/Jorghdez18" target="_blank" style="background-color:#181717; color:white; transition: all 0.3s;">GitHub</a>
-      <a class="btn" href="mailto:hernandezperezjorge845@gmail.com" style="background-color:#FF8C00; color:white; transition: all 0.3s;">Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/jorge-hern%C3%A1ndez-p%C3%A9rez-22a1a83b3/" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/Jorghdez18" target="_blank">GitHub</a>
+      <a class="btn" href="mailto:hernandezperezjorge845@gmail.com">Email</a>
     </nav>
   </header>
 
@@ -31,10 +31,10 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
             Busco mis primeras <b>prácticas profesionales</b> para aprender de proyectos reales, crecer como desarrollador y aportar al equipo con entusiasmo y curiosidad.
           </p>
           <div class="pillrow" style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="pill" style="background-color:#F0DB4F; color:#333; transition:all 0.3s;" onmouseover="this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)'" onmouseout="this.style.boxShadow='none'">Java</span>
-            <span class="pill" style="background-color:#61DBFB; color:#333; transition:all 0.3s;" onmouseover="this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)'" onmouseout="this.style.boxShadow='none'">HTML/CSS</span>
-            <span class="pill" style="background-color:#3E8E41; color:white; transition:all 0.3s;" onmouseover="this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)'" onmouseout="this.style.boxShadow='none'">SQL</span>
-            <span class="pill" style="background-color:#181717; color:white; transition:all 0.3s;" onmouseover="this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)'" onmouseout="this.style.boxShadow='none'">Git</span>
+            <span class="pill" style="background-color:#F0DB4F; color:#333;">Java</span>
+            <span class="pill" style="background-color:#61DBFB; color:#333;">HTML/CSS</span>
+            <span class="pill" style="background-color:#3E8E41; color:white;">SQL</span>
+            <span class="pill" style="background-color:#181717; color:white;">Git</span>
           </div>
         </div>
       </div>
@@ -61,9 +61,9 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
       Conozco los principios de <b>Agile</b> y su aplicación en proyectos de software. Trabajo con ciclos cortos, comunicación constante y mejora continua para entregar software funcional y adaptado a los cambios.
     </p>
     <div style="display:flex; gap:10px; margin-top:10px;">
-      <span class="pill" style="background-color:#6DB33F; color:white; transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Scrum</span>
-      <span class="pill" style="background-color:#FF8C00; color:white; transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Kanban</span>
-      <span class="pill" style="background-color:#0052CC; color:white; transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Agile</span>
+      <span class="pill" style="background-color:#6DB33F; color:white;">Scrum</span>
+      <span class="pill" style="background-color:#FF8C00; color:white;">Kanban</span>
+      <span class="pill" style="background-color:#0052CC; color:white;">Agile</span>
     </div>
   </section>
 
@@ -77,21 +77,31 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
         <option value="stars">Ordenar: estrellas</option>
         <option value="name">Ordenar: nombre</option>
       </select>
-      <button class="btn active" data-topic="all" style="background-color:#0052CC; color:white; transition:all 0.3s;">Todos</button>
-      <button class="btn" data-topic="web" style="background-color:#FF8C00; color:white; transition:all 0.3s;">web</button>
-      <button class="btn" data-topic="backend" style="background-color:#3E8E41; color:white; transition:all 0.3s;">backend</button>
+      <button class="btn active" data-topic="all">Todos</button>
+      <button class="btn" data-topic="web">web</button>
+      <button class="btn" data-topic="backend">backend</button>
     </div>
     <div id="repos" class="cards" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:15px;"></div>
   </section>
 </div>
 
 <style>
-  @keyframes fadeIn {
-    to { opacity: 1; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .btn {
+    padding:6px 10px;
+    border-radius:6px;
+    text-decoration:none;
+    color:white;
+    transition: all 0.3s;
   }
-  .btn:hover {
-    transform: scale(1.05);
+  .btn:hover { transform: scale(1.05); }
+  .pill {
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:0.9em;
+    transition: all 0.3s;
   }
+  .pill:hover { box-shadow:0 4px 8px rgba(0,0,0,0.3); transform: scale(1.05); }
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
@@ -148,14 +158,14 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
         ? r.topics.slice(0, 6).map(t => `<span class="pill">${t}</span>`).join("")
         : `<span class="pill">sin topics</span>`;
       el.insertAdjacentHTML("beforeend", `
-        <article class="card" style="border:2px solid #6DB33F; padding:10px; border-radius:10px; background-color:white; transition: all 0.3s;">
+        <article class="card" style="border:2px solid #6DB33F; padding:10px; border-radius:10px; background-color:white;">
           <h3>${r.name}</h3>
           <div style="color:#555;">${r.description || "Sin descripción"}</div>
           <div class="pillrow" style="margin-top:6px;">${topics}</div>
           <div style="margin-top:6px; font-size:0.9em; color:#777;">
             ⭐ ${r.stargazers_count} • 🧩 ${r.language} • 🕒 ${formatDate(r.updated_at)}
           </div>
-          <a class="btn" href="${r.html_url}" target="_blank" style="margin-top:6px; display:inline-block; background-color:#0A66C2;color:white;padding:4px 8px;border-radius:6px;text-decoration:none; transition: all 0.3s;">Abrir</a>
+          <a class="btn" href="${r.html_url}" target="_blank" style="margin-top:6px; display:inline-block; background-color:#0A66C2;">Abrir</a>
         </article>
       `);
     });
@@ -185,4 +195,3 @@ title: "Jorge Hernández Pérez — CV & Portfolio"
     console.error(err);
   });
 </script>
-
